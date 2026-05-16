@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Завтра Будет Солнечно - Визуальная Новелла</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-dark': '#1c1b18',
+            'text-primary': '#dcd1bb',
+            'text-muted': '#8c8577',
+            'accent-red': '#d34a3b',
+            'accent-yellow': '#c9a13b',
+            'card-light': '#ebdcc3',
+            'card-dark': '#23221e',
+            'border-light': '#4a463d',
+            'border-yellow': '#c9a13b',
+          },
+          fontFamily: {
+            'sans': ['"Oswald"', 'sans-serif'],
+            'serif': ['"PT Serif"', 'serif'],
+            'mono': ['"Courier New"', 'monospace'],
+          },
+          letterSpacing: {
+            'widest': '.25em',
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&amp;family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="custom-styles">
+    body {
+      background-color: #1c1b18;
+      color: #dcd1bb;
+      font-family: 'PT Serif', serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+    }
+
+    /* Noise Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Staggered Animation */
+    .animate-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    .animate-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+
+    /* Custom Ticker Tape */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background-color: #23221e;
+      border-top: 1px solid #4a463d;
+      border-bottom: 1px solid #4a463d;
+      padding: 0.5rem 0;
+      white-space: nowrap;
+      position: relative;
+    }
+    .ticker-content {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Polaroid specific shadow */
+    .polaroid-shadow {
+      box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Card Hover */
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-accent-red selection:text-white">
+<!-- BEGIN: Main Navigation -->
+<header class="w-full border-b border-border-light fixed top-0 bg-bg-dark/95 backdrop-blur z-40">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<div class="font-heading font-bold text-xl tracking-wider text-accent-yellow">
+        ЗАВТРА БУДЕТ СОЛНЕЧНО
+      </div>
+<nav class="hidden md:flex space-x-8 text-sm font-heading tracking-widest text-text-muted">
+<a class="text-accent-yellow border-b border-accent-yellow pb-1 transition-colors" href="#">ГЛАВНАЯ</a>
+<a class="hover:text-text-primary transition-colors" href="#">ОБ ИГРЕ</a>
+<a class="hover:text-text-primary transition-colors" href="#">ПЕРСОНАЖИ</a>
+<a class="hover:text-text-primary transition-colors" href="#">ГАЛЕРЕЯ</a>
+<a class="hover:text-text-primary transition-colors" href="#">САУНДТРЕК</a>
+<a class="hover:text-text-primary transition-colors" href="#">СКАЧАТЬ</a>
+</nav>
+<div class="flex items-center space-x-2 border border-border-light px-3 py-1 rounded text-xs font-mono text-text-muted cursor-pointer hover:border-accent-yellow transition-colors">
+<div class="w-4 h-4 bg-accent-red border border-accent-red"></div>
+<span>РЕЖИМ</span>
+</div>
+</div>
+</header>
+<!-- END: Main Navigation -->
+<!-- Top Line Separator -->
+<div class="w-full max-w-7xl mx-auto px-6 mt-28">
+<div class="border-t border-accent-yellow w-full animate-up"></div>
+<div class="border-t border-accent-yellow w-full mt-1 animate-up"></div>
+</div>
+<main class="w-full">
+<!-- BEGIN: Hero Section -->
+<section class="max-w-7xl mx-auto px-6 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative overflow-hidden">
+<!-- Content Left -->
+<div class="z-10 animate-up">
+<div class="inline-block border border-border-light text-text-muted font-mono text-[10px] uppercase tracking-widest px-3 py-1 mb-6">
+          СИМУЛЯЦИЯ ЗАПУЩЕНА // АРХИВ 404
+        </div>
+<h1 class="text-6xl md:text-7xl lg:text-8xl font-heading font-bold text-accent-red leading-none mb-6">
+          ЗАВТРА БУДЕТ<br/>СОЛНЕЧНО
+        </h1>
+<p class="text-lg md:text-xl text-text-primary mb-10 max-w-lg italic font-light leading-relaxed">
+          Мы строили светлое будущее, но забыли спросить, каким оно будет. <br/>
+          В архивах памяти мерцает старый мир. Найди выход из бетонного лабиринта.
+        </p>
+<div class="flex flex-wrap gap-4 font-heading text-sm tracking-widest">
+<a class="bg-accent-red text-white px-8 py-4 hover:bg-red-700 transition-colors" href="#">
+            ИГРАТЬ СЕЙЧАС
+          </a>
+<a class="border border-border-yellow text-accent-yellow px-8 py-4 hover:bg-border-yellow/10 transition-colors" href="#">
+            УЗНАТЬ БОЛЬШЕ
+          </a>
+</div>
+</div>
+<!-- Image Right (Polaroid Style) -->
+<div class="relative z-10 flex justify-center lg:justify-end animate-up delay-200">
+<div class="bg-card-light p-4 pb-16 rotate-3 polaroid-shadow max-w-md w-full relative group hover:rotate-0 transition-transform duration-500">
+<div class="w-full aspect-square bg-[#f5f0e1] border border-[#e5dfce]">
+<!-- Placeholder for polaroid image -->
+</div>
+<div class="absolute bottom-4 right-4 bg-bg-dark border border-border-light text-accent-yellow font-mono text-[10px] px-2 py-1">
+            ИНВЕНТАРНЫЙ № 774-Б
+          </div>
+</div>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Ticker Tape -->
+<div class="ticker-wrap animate-up delay-300">
+<div class="ticker-content font-mono text-xs text-accent-yellow tracking-widest uppercase">
+<span class="mx-4">/// ОШИБКА ДОСТУПА ///</span>
+<span class="mx-4 text-text-muted">ВЧЕРА БЫЛО ХОЛОДНО</span>
+<span class="mx-4">/// АРХИВЫ ПОВРЕЖДЕНЫ ///</span>
+<span class="mx-4 text-text-muted">ЗАВТРА БУДЕТ СОЛНЕЧНО</span>
+<span class="mx-4">/// СИСТЕМА ОЖИДАЕТ ВВОДА ///</span>
+<span class="mx-4 text-text-muted">ПОМНИ О БЕТОНЕ</span>
+<!-- Duplicate for seamless loop -->
+<span class="mx-4">/// ОШИБКА ДОСТУПА ///</span>
+<span class="mx-4 text-text-muted">ВЧЕРА БЫЛО ХОЛОДНО</span>
+<span class="mx-4">/// АРХИВЫ ПОВРЕЖДЕНЫ ///</span>
+<span class="mx-4 text-text-muted">ЗАВТРА БУДЕТ СОЛНЕЧНО</span>
+<span class="mx-4">/// СИСТЕМА ОЖИДАЕТ ВВОДА ///</span>
+<span class="mx-4 text-text-muted">ПОМНИ О БЕТОНЕ</span>
+</div>
+</div>
+<!-- END: Ticker Tape -->
+<!-- BEGIN: Data Archive Section -->
+<section class="max-w-7xl mx-auto px-6 py-20">
+<div class="mb-12 border-b border-border-light pb-4 relative animate-up">
+<h2 class="text-4xl md:text-5xl font-heading font-bold text-accent-red mb-2">АРХИВ ДАННЫХ</h2>
+<p class="text-lg italic text-text-muted">Память — это хрупкая нить, связывающая нас с миром, которого больше нет</p>
+<div class="absolute bottom-[-1px] right-0 flex gap-1">
+<div class="h-1 w-8 bg-accent-red"></div>
+<div class="h-1 w-16 bg-accent-red"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1: Simulation -->
+<article class="bg-card-light text-bg-dark p-6 md:p-8 hover-lift animate-up delay-100 relative">
+<div class="absolute top-0 right-0 bg-accent-yellow text-bg-dark font-mono text-[10px] px-3 py-1 font-bold">
+            ФАЗА 01
+          </div>
+<div class="w-full aspect-[2/1] border-2 border-bg-dark mb-6"></div>
+<h3 class="text-3xl font-heading font-bold mb-4 uppercase">СИМУЛЯЦИЯ</h3>
+<div class="h-[1px] w-full bg-border-light mb-4"></div>
+<p class="mb-6 leading-relaxed font-serif">
+            Архитектура завтрашнего дня, застывшая в чертежах. Строгие линии, монументальные проспекты и непоколебимая вера в то, что человеческая природа может быть рассчитана так же точно, как траектория спутника. Тёплый свет ламповых дисплеев освещает путь к всеобщему благу.
+          </p>
+<a class="inline-flex items-center gap-2 border border-bg-dark px-4 py-2 font-mono text-xs uppercase tracking-widest hover:bg-bg-dark hover:text-card-light transition-colors" href="#">
+            ИЗУЧИТЬ ДОКУМЕНТАЦИЮ →
+          </a>
+</article>
+<!-- Card 2: Reality -->
+<article class="bg-card-dark border border-border-light p-6 md:p-8 hover-lift animate-up delay-200 relative">
+<div class="absolute top-0 right-0 border border-border-light text-text-muted font-mono text-[10px] px-3 py-1">
+            ФАЗА 02
+          </div>
+<div class="w-full aspect-[2/1] border border-border-light mb-6"></div>
+<h3 class="text-3xl font-heading font-bold text-white mb-4 uppercase">РЕАЛЬНОСТЬ</h3>
+<div class="h-[1px] w-full bg-border-light mb-4"></div>
+<p class="mb-6 leading-relaxed text-text-muted font-serif">
+            То, что скрыто за парадными фасадами. Изнанка симуляции, где данные искажаются, а в идеальных алгоритмах зарождаются призраки. Холодный неон пробивается сквозь трещины в бетоне, обнажая хрупкость конструкций, на которых держится этот мир.
+          </p>
+<a class="inline-flex items-center gap-2 border border-accent-red text-accent-red px-4 py-2 font-mono text-xs uppercase tracking-widest hover:bg-accent-red hover:text-white transition-colors" href="#">
+            ДОСТУП К ИЗНАНКЕ ▵
+          </a>
+</article>
+</div>
+</section>
+<!-- END: Data Archive Section -->
+<!-- Separator -->
+<div class="w-full max-w-7xl mx-auto px-6 py-8">
+<div class="border-t border-accent-yellow w-full animate-up delay-300"></div>
+</div>
+<!-- BEGIN: Countdown Section -->
+<section class="max-w-4xl mx-auto px-6 py-16 text-center animate-up">
+<h2 class="text-4xl md:text-6xl font-heading font-bold text-accent-red mb-2 uppercase">НЕ ПРОПУСТИТЕ РЕЛИЗ</h2>
+<p class="text-lg italic text-text-muted mb-12">Антиутопия. Страна Советов. 2029 год.</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 font-heading">
+<!-- Days -->
+<div class="bg-card-dark border border-border-light p-6 relative">
+<div class="absolute top-0 left-0 bg-bg-dark border-r border-b border-border-light font-mono text-[9px] px-1 py-0.5 text-text-muted">01-ДНИ</div>
+<div class="text-5xl md:text-6xl text-accent-yellow font-bold mb-1 mt-2">35</div>
+<div class="text-xs tracking-widest text-text-muted uppercase">ДНЕЙ</div>
+</div>
+<!-- Hours -->
+<div class="bg-card-dark border border-border-light p-6 relative">
+<div class="absolute top-0 left-0 bg-bg-dark border-r border-b border-border-light font-mono text-[9px] px-1 py-0.5 text-text-muted">02-ЧАСЫ</div>
+<div class="text-5xl md:text-6xl text-accent-yellow font-bold mb-1 mt-2">10</div>
+<div class="text-xs tracking-widest text-text-muted uppercase">ЧАСОВ</div>
+</div>
+<!-- Minutes -->
+<div class="bg-card-dark border border-border-light p-6 relative">
+<div class="absolute top-0 left-0 bg-bg-dark border-r border-b border-border-light font-mono text-[9px] px-1 py-0.5 text-text-muted">03-МИНУТЫ</div>
+<div class="text-5xl md:text-6xl text-accent-yellow font-bold mb-1 mt-2">38</div>
+<div class="text-xs tracking-widest text-text-muted uppercase">МИНУТ</div>
+</div>
+<!-- Seconds -->
+<div class="bg-card-dark border border-border-light p-6 relative">
+<div class="absolute top-0 left-0 bg-bg-dark border-r border-b border-border-light font-mono text-[9px] px-1 py-0.5 text-text-muted">04-СЕКУНДЫ</div>
+<div class="text-5xl md:text-6xl text-accent-yellow font-bold mb-1 mt-2">48</div>
+<div class="text-xs tracking-widest text-text-muted uppercase">СЕКУНД</div>
+</div>
+</div>
+<!-- Subscribe Form -->
+<div class="max-w-xl mx-auto border border-border-light bg-card-dark p-6 animate-up delay-200">
+<form class="flex flex-col sm:flex-row gap-4">
+<input class="flex-1 bg-bg-dark border border-border-light text-text-primary px-4 py-3 font-mono text-sm focus:outline-none focus:border-accent-yellow focus:ring-1 focus:ring-accent-yellow placeholder-text-muted/50" placeholder="ВАШ E-MAIL" required="" type="email"/>
+<button class="bg-accent-red text-white font-heading px-8 py-3 tracking-widest hover:bg-red-700 transition-colors uppercase whitespace-nowrap text-sm" type="submit">
+            ПОДПИСАТЬСЯ
+          </button>
+</form>
+</div>
+</section>
+<!-- END: Countdown Section -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="w-full border-t border-border-light mt-12 py-8 bg-bg-dark/80 text-center font-mono text-xs text-text-muted animate-up delay-400">
+<p>КОНЕЦ СЕАНСА // ЗАПИСЬ ОСТАНОВЛЕНА</p>
+</footer>
+<!-- END: Footer -->
+<!-- Interaction Scripts -->
+<script data-purpose="scroll-animations">
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.animate-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body></html>
