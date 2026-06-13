@@ -244,7 +244,7 @@ export default function Home() {
                     href="/about"
                     className="flex items-center justify-between gap-2 border border-[#1a1811] px-4 font-tech text-sm uppercase tracking-widest hover:bg-[#1a1811] hover:text-sim-surface transition-colors duration-500 ease-out w-full h-[41.6px]"
                   >
-                    ИЗУЧИТЬ ДОКУМЕНТАЦИЮ →
+                    <span>ИЗУЧИТЬ ДОКУМЕНТАЦИЮ</span><span>→</span>
                   </Link>
                 </div>
               </article>
