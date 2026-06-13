@@ -10,15 +10,15 @@ import ModeSwitchButton from "@/components/ModeSwitchButton";
 const ogImage = "/og-reality.jpg";
 
 export const metadata: Metadata = {
-  title: "Главная — Реальность",
+  title: "Главная",
   openGraph: {
-    title: "Завтра будет солнечно — Реальность",
+    title: "Завтра будет солнечно",
     description: "Когнитивный дрейф обнаружен. Симуляция нестабильна. Советская антиутопия 2029.",
-    images: [{ url: ogImage, width: 1200, height: 630, alt: "Реальность — Завтра будет солнечно" }],
+    images: [{ url: ogImage, width: 1200, height: 630, alt: "Завтра будет солнечно" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Завтра будет солнечно — Реальность",
+    title: "Завтра будет солнечно",
     description: "Когнитивный дрейф обнаружен. Симуляция нестабильна.",
     images: [ogImage],
   },
@@ -33,13 +33,21 @@ export default function HomePage() {
 
       <div style={{ paddingTop: "80px", flex: "1 0 auto", display: "flex", flexDirection: "column" }}>
 
-        <main className="mx-[72px] pt-6 pb-0 relative">
+        <main className="pt-6 pb-0 relative">
           <MatrixHero />
         </main>
 
         {/* Ticker */}
         <div className="border-y border-alert-red/30 py-4 bg-black shadow-lg z-30 real-ticker-wrap mt-12 mb-20">
           <div className="real-ticker-movable font-tech text-xs text-alert-red red-glow tracking-[0.2em] uppercase font-bold">
+            <div className="inline-flex shrink-0 items-center gap-16 pr-16">
+              <span>{"/// ОШИБКА ДОСТУПА ///"}</span>
+              <span>АРХИВЫ ПОВРЕЖДЕНЫ</span>
+              <span>{"/// СБОЙ ПИТАНИЯ ///"}</span>
+              <span>COGNITIVE_DRIFT_DETECTED</span>
+              <span>{"/// СУБЪЕКТ ОТКАЗАЛСЯ ПОДТВЕРДИТЬ СЧАСТЬЕ ///"}</span>
+              <span>ПРОКЛЯТОЕ СЧАСТЬЕ</span>
+            </div>
             <div className="inline-flex shrink-0 items-center gap-16 pr-16">
               <span>{"/// ОШИБКА ДОСТУПА ///"}</span>
               <span>АРХИВЫ ПОВРЕЖДЕНЫ</span>

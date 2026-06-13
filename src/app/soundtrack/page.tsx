@@ -12,8 +12,8 @@ export default function Soundtrack() {
     <>
       <Navbar activeItem="/soundtrack" />
 
-      <div style={{ paddingTop: "80px", flex: "1 0 auto" }}>
-        <main className="mx-[72px] py-8 relative z-10">
+      <div style={{ paddingTop: "80px", flex: "1 0 auto", display: "flex", flexDirection: "column" }}>
+        <main className="flex-1 mx-[72px] py-8 relative z-10">
 
           <header className="mb-8">
             <h1 className="soundtrack-h1 font-display text-7xl md:text-8xl font-bold text-soviet-red tracking-tight leading-none mb-4 uppercase stagger-up">

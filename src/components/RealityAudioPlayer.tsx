@@ -182,8 +182,8 @@ export default function AudioPlayer() {
   }, [playTrack]);
 
   return (
-    <div style={{ paddingTop: "80px", flex: "1 0 auto" }}>
-      <main className="flex-grow w-full content-px pb-8 flex flex-col gap-8 pt-8 md:pt-10">
+    <div style={{ paddingTop: "80px", flex: "1 0 auto", display: "flex", flexDirection: "column" }}>
+      <main className="flex-1 w-full content-px pb-8 flex flex-col gap-8 pt-8 md:pt-10">
 
         {/* ── Header ── */}
         <div className="w-full flex flex-col gap-2 border-b border-[#1b3a4b] pb-4">
@@ -214,7 +214,7 @@ export default function AudioPlayer() {
                   backgroundSize: "25px 25px",
                 }}
               />
-              <svg ref={svgRef} className="w-full h-full relative z-10" viewBox="0 0 800 200">
+              <svg ref={svgRef} className="w-full h-full relative z-10" viewBox="0 0 800 200" preserveAspectRatio="none">
                 <path
                   className="drop-shadow-[0_0_6px_#4cd6fb]"
                   d="M 0 100 Q 50 30, 100 100 T 200 100 T 300 100 T 400 100 T 500 100 T 600 100 T 700 100 T 800 100"

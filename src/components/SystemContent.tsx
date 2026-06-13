@@ -68,8 +68,8 @@ export default function SystemContent() {
   }, []);
 
   return (
-    <div style={{ paddingTop: "80px", flex: "1 0 auto" }}>
-      <main className="flex-grow flex flex-col md:flex-row three-col content-px pb-8 gap-4 z-30 relative pt-8 md:pt-10">
+    <div style={{ paddingTop: "80px", flex: "1 0 auto", display: "flex", flexDirection: "column" }}>
+      <main className="flex-1 flex flex-col md:flex-row three-col content-px pb-8 gap-4 z-30 relative pt-8 md:pt-10">
 
         {/* ── LEFT SIDEBAR ── */}
         <aside className="w-full md:w-1/4 flex flex-col gap-4">
@@ -203,7 +203,7 @@ export default function SystemContent() {
             <div className="absolute top-0 left-0 bg-[#1B4FBF] text-[#0e1416] px-2 py-0.5 text-[9px] uppercase tracking-wider font-bold">
               ТЕРМИНАЛ
             </div>
-            <div ref={logsRef} className="mt-4 text-[12px] overflow-y-auto h-44 flex flex-col gap-1 leading-normal pr-1">
+            <div ref={logsRef} className="cyan-scroll mt-4 text-[12px] overflow-y-auto h-44 flex flex-col gap-1 leading-normal pr-1">
               {logs.map((l, i) => (
                 <div key={i} className={l.cls}>{l.text}</div>
               ))}

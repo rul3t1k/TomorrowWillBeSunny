@@ -3,7 +3,7 @@ import RealityBody from "@/components/RealityBody";
 import RealityNavbar from "@/components/RealityNavbar";
 import SystemContent from "@/components/SystemContent";
 
-export const metadata: Metadata = { title: "Sunphase System — Реальность" };
+export const metadata: Metadata = { title: "Sunphase System" };
 
 export default function SystemPage() {
   return (

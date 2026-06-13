@@ -172,12 +172,12 @@ export default function Characters() {
           <CharactersGrid>
             <section
               aria-label="Character Dossiers"
-              className="characters-grid flex flex-wrap justify-center gap-x-6 gap-y-24"
+              className="characters-grid grid grid-cols-6 gap-x-6 gap-y-24"
             >
-              {CHARACTERS.map((char) => (
+              {CHARACTERS.map((char, i) => (
                 <article
                   key={char.id}
-                  className="card-container relative group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-md"
+                  className={`card-container relative group col-span-6 md:col-span-3 lg:col-span-2${i === 9 ? " lg:col-start-2" : ""}`}
                   style={{ transform: char.rotate }}
                 >
                   <div

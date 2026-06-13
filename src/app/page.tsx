@@ -64,7 +64,7 @@ export default function Home() {
                 textTransform: "uppercase",
               }}
             >
-              <span style={{ fontFamily: "Calibri" }}>СИМУЛЯЦИЯ ЗАПУЩЕНА. ТЫ УЖЕ ВНУТРИ.</span>
+              <span>СИМУЛЯЦИЯ ЗАПУЩЕНА. ТЫ УЖЕ ВНУТРИ.</span>
             </div>
             <h1
               className="font-oswald text-7xl lg:text-8xl text-sim-red leading-[0.9] uppercase tracking-wide mb-8 stagger-up delay-100"
@@ -87,19 +87,19 @@ export default function Home() {
               Мы строили светлое будущее.&nbsp;&nbsp;<br />
               Потом забыли спросить: «А вы вообще счастливы?»
             </p>
-            <div className="flex gap-4 stagger-up delay-300">
-              <Link href="/download">
+            <div className="flex flex-col lg:flex-row gap-3 lg:gap-4 stagger-up delay-300">
+              <Link href="/download" className="block">
                 <button
-                  className="bg-sim-red text-sim-surface font-oswald text-xl uppercase px-8 py-4 tracking-wider hover:bg-sim-red-hover transition-all duration-500 ease-out shadow-[4px_4px_0px_#000]"
+                  className="w-full lg:w-auto bg-sim-red text-sim-surface font-oswald text-xl uppercase px-8 h-[60px] tracking-wider hover:bg-sim-red-hover transition-all duration-500 ease-out shadow-[4px_4px_0px_#000]"
                   style={{ fontFamily: "Oswald,sans-serif", fontWeight: 600, fontSize: "18px", lineHeight: "28px" }}
                 >
                   Играть сейчас
                 </button>
               </Link>
-              <Link href="/about">
+              <Link href="/about" className="block">
                 <button
-                  className="border-2 border-sim-muted text-sim-muted font-oswald text-xl uppercase px-8 py-4 tracking-wider transition-all duration-500 ease-out shadow-[4px_4px_0px_#000] hover:bg-[#E8890C] hover:text-[#1C1A12] hover:border-[#E8890C]"
-                  style={{ fontFamily: "Oswald,sans-serif", fontWeight: 600, fontSize: "20px", lineHeight: "28px" }}
+                  className="w-full lg:w-auto border-2 border-sim-muted text-sim-muted font-oswald text-xl uppercase px-[30px] h-[60px] tracking-wider transition-all duration-500 ease-out shadow-[4px_4px_0px_#000] hover:bg-[#E8890C] hover:text-[#1C1A12] hover:border-[#E8890C]"
+                  style={{ fontFamily: "Oswald,sans-serif", fontWeight: 600, fontSize: "18px", lineHeight: "28px" }}
                 >
                   Узнать больше
                 </button>
@@ -132,6 +132,15 @@ export default function Home() {
         {/* ===== TICKER ===== */}
         <div className="ticker-wrap relative z-10 my-16 py-3">
           <div className="ticker-movable font-tech text-sm text-sim-gold tracking-widest uppercase items-center">
+            <div className="flex shrink-0 items-center gap-16 pr-16">
+              <span>{"/// Счастье — 98,2% ///"}</span>
+              <span>Ион выключил радио</span>
+              <span>{"/// Лизика мыла пол ///"}</span>
+              <span>Аделаида завелась с пол-оборота</span>
+              <span>{"/// Цуркану снова орёт ///"}</span>
+              <span>Завтра будет солнечно</span>
+              <span>{"/// А сегодня — симуляция ///"}</span>
+            </div>
             <div className="flex shrink-0 items-center gap-16 pr-16">
               <span>{"/// Счастье — 98,2% ///"}</span>
               <span>Ион выключил радио</span>
@@ -189,7 +198,7 @@ export default function Home() {
 
               {/* Карточка «Симуляция» */}
               <article
-                className="bg-sim-surface text-[#1a1811] p-8 relative group hover:-translate-y-1 transition-all duration-500 ease-out flex flex-col h-full"
+                className="bg-sim-surface text-[#1a1811] p-8 relative group hover:-translate-y-1 transition-all duration-500 ease-out flex flex-col"
                 style={{ boxShadow: "10px 10px 0px rgba(0,0,0,0.5)" }}
               >
                 <div className="absolute top-0 right-0 bg-[#e0d6b8] px-3 py-1 font-tech text-xs text-sim-muted tracking-widest border-l border-b border-[#c2b99d]">
@@ -218,7 +227,7 @@ export default function Home() {
                 </h3>
                 <hr className="border-[#1a1811] mb-4" />
                 <p
-                  className="font-ptserif text-lg leading-relaxed mb-8"
+                  className="font-ptserif text-lg leading-relaxed pb-8"
                   style={{
                     fontFamily: "'PT Serif',serif",
                     fontWeight: 400,
@@ -233,7 +242,7 @@ export default function Home() {
                 <div className="mt-auto pt-4">
                   <Link
                     href="/about"
-                    className="inline-flex items-center gap-2 border border-[#1a1811] px-4 py-2 font-tech text-sm uppercase tracking-widest hover:bg-[#1a1811] hover:text-sim-surface transition-colors duration-500 ease-out"
+                    className="flex items-center justify-between gap-2 border border-[#1a1811] px-4 font-tech text-sm uppercase tracking-widest hover:bg-[#1a1811] hover:text-sim-surface transition-colors duration-500 ease-out w-full h-[41.6px]"
                   >
                     ИЗУЧИТЬ ДОКУМЕНТАЦИЮ →
                   </Link>
@@ -241,7 +250,7 @@ export default function Home() {
               </article>
 
               {/* Карточка «Реальность» */}
-              <article className="bg-[#25231a] text-sim-surface border border-[#3a3628] p-8 relative group hover:-translate-y-1 transition-all duration-500 ease-out flex flex-col h-full"
+              <article className="bg-[#25231a] text-sim-surface border border-[#3a3628] p-8 relative group hover:-translate-y-1 transition-all duration-500 ease-out flex flex-col"
                 style={{ boxShadow: "10px 10px 0px rgba(0,0,0,0.5)" }}
               >
                 <div className="absolute top-0 right-0 bg-[#3a3628] px-3 py-1 font-tech text-xs text-sim-muted tracking-widest">
@@ -270,7 +279,7 @@ export default function Home() {
                 </h3>
                 <hr className="border-[#F2EDDA] opacity-20 mb-4" />
                 <p
-                  className="font-ptserif text-lg leading-relaxed mb-8 text-[#dcd6c1]"
+                  className="font-ptserif text-lg leading-relaxed pb-8 text-[#dcd6c1]"
                   style={{
                     fontFamily: "'PT Serif',serif",
                     fontWeight: 400,
@@ -285,7 +294,7 @@ export default function Home() {
                 <div className="mt-auto pt-4">
                   <ModeSwitchButton
                     to="reality"
-                    className="inline-flex items-center gap-2 border border-[#7a241b] text-[#c94a3d] px-4 py-2 font-tech text-sm uppercase tracking-widest hover:bg-[#7a241b] hover:text-white transition-colors duration-500 ease-out"
+                    className="flex items-center justify-between gap-2 border border-[#7a241b] text-[#c94a3d] px-4 py-2 font-tech text-sm uppercase tracking-widest hover:bg-[#7a241b] hover:text-white transition-colors duration-500 ease-out w-full"
                   >
                     ДОСТУП К ИЗНАНКЕ{" "}
                     <span className="material-symbols-outlined text-sm">warning</span>

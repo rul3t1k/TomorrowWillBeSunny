@@ -18,13 +18,14 @@ export default function CustomCursor() {
     document.body.appendChild(arrow);
 
     const onMove = (e: MouseEvent) => {
-      arrow.style.left = e.clientX + "px";
-      arrow.style.top = e.clientY + "px";
+      arrow.style.setProperty("--cx", e.clientX + "px");
+      arrow.style.setProperty("--cy", e.clientY + "px");
+      if (arrow.style.opacity !== "1") arrow.style.opacity = "1";
     };
     const onDown = () => document.body.classList.add("cursor-active");
     const onUp = () => document.body.classList.remove("cursor-active");
     const onLeave = () => { arrow.style.opacity = "0"; };
-    const onEnter = () => { arrow.style.opacity = "1"; };
+    const onEnter = () => { /* opacity revealed on next mousemove to avoid flash at wrong position */ };
 
     // Наведение определяем делегированием (mouseover/mouseout всплывают),
     // поэтому работает и для динамически добавленных элементов — без

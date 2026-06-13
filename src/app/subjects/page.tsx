@@ -4,7 +4,7 @@ import RealityNavbar from "@/components/RealityNavbar";
 import RealityFooter from "@/components/RealityFooter";
 import SubjectCard, { type SubjectCardProps } from "@/components/SubjectCard";
 
-export const metadata: Metadata = { title: "Субъекты — Реальность" };
+export const metadata: Metadata = { title: "Субъекты" };
 
 const SUBJECTS: SubjectCardProps[] = [
   {
@@ -178,7 +178,7 @@ export default function SubjectsPage() {
                 <span className="text-[#3d494d]">[003]</span> &gt; WARNING: COGNITIVE DRIFT ISOLATED IN SECTOR 7.
               </p>
               <h1
-                className="glitch-text text-4xl md:text-5xl crt-glow mt-4 uppercase font-bold tracking-widest"
+                className="glitch-text text-3xl sm:text-4xl md:text-5xl crt-glow mt-4 uppercase font-bold tracking-widest"
                 style={{ color: "#00B4D8" }}
               >
                 БАЗА_СУБЪЕКТОВ

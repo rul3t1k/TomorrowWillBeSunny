@@ -3,7 +3,7 @@ import RealityBody from "@/components/RealityBody";
 import RealityNavbar from "@/components/RealityNavbar";
 import InitializeContent from "@/components/InitializeContent";
 
-export const metadata: Metadata = { title: "Скачать — Реальность" };
+export const metadata: Metadata = { title: "Скачать" };
 
 export default function InitializePage() {
   return (

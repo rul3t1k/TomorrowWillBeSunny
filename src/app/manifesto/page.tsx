@@ -3,7 +3,7 @@ import RealityBody from "@/components/RealityBody";
 import RealityNavbar from "@/components/RealityNavbar";
 import ManifestoContent from "@/components/ManifestoContent";
 
-export const metadata: Metadata = { title: "Манифест — Реальность" };
+export const metadata: Metadata = { title: "Манифест" };
 
 export default function ManifestoPage() {
   return (

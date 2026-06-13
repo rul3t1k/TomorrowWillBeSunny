@@ -4,7 +4,7 @@ import RealityBody from "@/components/RealityBody";
 import RealityNavbar from "@/components/RealityNavbar";
 import RealityFooter from "@/components/RealityFooter";
 
-export const metadata: Metadata = { title: "Sunphase OS — Реальность" };
+export const metadata: Metadata = { title: "Sunphase OS" };
 
 export default function SunphasePage() {
   return (
@@ -13,8 +13,8 @@ export default function SunphasePage() {
       <div className="real-scanlines-overlay" aria-hidden="true" />
       <RealityNavbar activeItem="/sunphase" />
 
-      <div style={{ paddingTop: "80px", flex: "1 0 auto" }}>
-        <main className="w-full px-4 md:px-[72px] py-8 md:py-12">
+      <div style={{ paddingTop: "80px", flex: "1 0 auto", display: "flex", flexDirection: "column" }}>
+        <main className="flex-1 w-full px-4 md:px-[72px] py-8 md:py-12">
           <section className="flex flex-col items-center w-full max-w-4xl mx-auto">
 
             {/* Title */}

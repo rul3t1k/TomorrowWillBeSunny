@@ -3,7 +3,7 @@ import RealityBody from "@/components/RealityBody";
 import RealityNavbar from "@/components/RealityNavbar";
 import RealityAudioPlayer from "@/components/RealityAudioPlayer";
 
-export const metadata: Metadata = { title: "Саундтрек — Реальность" };
+export const metadata: Metadata = { title: "Саундтрек" };
 
 export default function AudioPage() {
   return (

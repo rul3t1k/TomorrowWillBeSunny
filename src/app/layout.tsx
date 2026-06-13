@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Завтра будет солнечно",
-    template: "%s — Завтра будет солнечно",
+    template: "%s - Завтра будет солнечно",
   },
   description:
     "«Завтра будет солнечно» — инди-игра, советская антиутопия 2029 года. Симуляция запущена. Ты уже внутри.",
